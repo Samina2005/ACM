@@ -1,0 +1,358 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "popins", sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f242d ;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background: #0ef;
+    color: #1f242d;
+}
+
+/* Section Styles */
+section {
+    padding: 100px 20px; /* Added top padding for fixed navbar */
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    animation: slideIn 0.5s forwards;
+    opacity: 0;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+}
+
+/* Home Section */
+.home-section {
+    background: url('DSC_0112.JPG') no-repeat center center/cover;
+    color: white;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-content {
+    background:rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    position:absolute;
+    top:50px;
+}
+
+/* About Section */
+.about-section {
+    background:url(my.avif)  no-repeat ;
+	background-size:cover;  
+    background-position:center; 
+    margin: 40px 0;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 0.6s forwards;
+}
+
+/* Events Section */
+.events-section {
+    background:url(my.avif)  no-repeat ;
+	background-size:cover;  
+    background-position:center;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Highlights Section */
+.highlights-section {
+    background:url(my.avif)  no-repeat ;
+	background-size:cover;  
+    background-position:center;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Fade in the gallery */
+}
+
+.gallery-container img {
+    width: 30%;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+.contact-section {
+    background:url(my.avif)  no-repeat ;
+	background-size:cover;  
+    background-position:center;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 40px 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1f242d;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounceIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjusted for fixed navbar */
+        right: 0;
+        background: #282c34;
+        display: none;  /* Default to hidden */
+        width: 100%;
+        text-align: center;
+        z-index: 999;
+    }
+    
+    .navbar.active .nav-links {
+        display: flex;  /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .gallery-container img {
+        width: 100%;
+        max-width: 90%; 
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Display hamburger menu on mobile */
+    }
+}
+
+.photo-series {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.photo-series h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Gallery Container */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; 
+    max-width: 1200px; 
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* Photo Item */
+.photo-item {
+    flex: 1 1 200px; 
+    text-align: center; 
+}
+
+/* Caption Styles */
+.caption {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Image Styles */
+.gallery-container img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+    .gallery-container {
+        gap: 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        flex-direction: column; 
+    }
+    .photo-item {
+        width: 100%; /* All items full width */
+    }
+}
+
+.social-links img {
+    width:40px;
+}
+
+/* .nav-links.active {
+    display: flex; 
+}
+
+.nav-links {
+    display: none; 
+}
+
+.hamburger {
+    display: none; 
+} */
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 70px; 
+        right: 0;
+        background: #282c34;
+        width: 100%; 
+        text-align: center;
+        z-index: 999;
+    }
+
+    .hamburger {
+        display: flex; 
+    }
+}
